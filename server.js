@@ -59,7 +59,6 @@ app.get("/submit", (req,res)=>{
 })
 
 app.post("/submit", (req,res)=>{
-    d=req.body.secret;
     const sec= new secrets({
         secret: d
     })
@@ -76,10 +75,11 @@ app.post("/login", (req,res)=>{
         res.redirect("/")
     })  
     .catch((err)=>{
-        res.redirect("/")
+        // res.redirect("/")
         console.log("error")
     })
 })
+
 
 var port=process.env.PORT || 3000;
 app.listen(port, ()=>{
